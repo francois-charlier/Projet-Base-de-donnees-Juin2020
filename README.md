@@ -16,15 +16,15 @@ Il y aura un onglet pour voir les catégories des sondages.
 2) backend : Un serveur web capable de fournir les pages html, js, css, ainsi que de proposer des webservices
 
 3) backend : Des webservices (avec les procédures associées) :<br>
--Un webservice permettant la création et la connexion à un compte
--Un webservice permettant de récupérer les derniers sondages
--Un webservice permettant de voir le profil d'un utilisateur
+-Un webservice permettant la création et la connexion à un compte <br>
+-Un webservice permettant de récupérer les derniers sondages <br>
+-Un webservice permettant de voir le profil d'un utilisateur <br>
 -Un webservice permettant d'afficher les catégories des sondages
-
-4) frontend : Une page web (html, js, css) permettant d'appeler les webservices et de traiter les réponses, qui propose une interface utilisateur pour:
--afficher les derniers sondages
--afficher les categories de sondages
--cliquer sur le créateur d'un sondage pour afficher son profil
--introduire ses informations d'utilisateur
--participer à un sondage
+<br>
+4) frontend : Une page web (html, js, css) permettant d'appeler les webservices et de traiter les réponses, qui propose une interface utilisateur pour: <br>
+-afficher les derniers sondages <br>
+-afficher les categories de sondages <br>
+-cliquer sur le créateur d'un sondage pour afficher son profil <br>
+-introduire ses informations d'utilisateur <br>
+-participer à un sondage <br>
 -créer/effacer un sondage
