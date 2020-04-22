@@ -2,6 +2,8 @@
 
 Idée de projet: Un site de sondages
 
+Membres du Groupes : Maxime Lits, Matthew Everard, Charlier Francois.
+
 L'idée est de s'inscrire si on ne l'est pas encore, donc il y aura un système d'inscription/connexion.
 Une fois connecté, chaque utilisateur pourra créer ou participer à des sondages. Une moyenne des réponses au sondage à
 la fin de celui-ci sera affichée. Au plus on répond à de sondages, au plus notre grade sera élevé.
