@@ -20,7 +20,7 @@ Il y aura un onglet pour voir les catégories des sondages.
 -Un webservice permettant de récupérer les derniers sondages <br>
 -Un webservice permettant de voir le profil d'un utilisateur <br>
 -Un webservice permettant d'afficher les catégories des sondages
-<br>
+
 4) frontend : Une page web (html, js, css) permettant d'appeler les webservices et de traiter les réponses, qui propose une interface utilisateur pour: <br>
 -afficher les derniers sondages <br>
 -afficher les categories de sondages <br>
