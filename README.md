@@ -15,7 +15,7 @@ Il y aura un onglet pour voir les catégories des sondages.
 
 2) backend : Un serveur web capable de fournir les pages html, js, css, ainsi que de proposer des webservices
 
-3) backend : Des webservices (avec les procédures associées) :
+3) backend : Des webservices (avec les procédures associées) :\n
 -Un webservice permettant la création et la connexion à un compte
 -Un webservice permettant de récupérer les derniers sondages
 -Un webservice permettant de voir le profil d'un utilisateur
