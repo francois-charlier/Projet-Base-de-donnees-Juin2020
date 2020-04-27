@@ -1,0 +1,54 @@
+
+/******************************************* Acceuil ****************************************/
+body {
+    background-image: url("../imgs/fond.png");
+}
+
+#button {
+    margin-left: 33%;
+}
+
+#connexion {
+    width: 700px;
+    height: 80px;
+    margin-bottom: 10px;
+    border: 0;
+    font-family: fantasy;
+    font-size: 40px;
+    background-color: #28a8be;
+    border-radius: 40px;
+    color: #f7931e;
+    text-shadow: black 2px 0 0;
+}
+
+#inscription {
+    width: 700px;
+    height: 80px;
+    margin-bottom: 10px;
+    border: 0;
+    font-family: fantasy;
+    font-size: 40px;
+    background-color: #f7931e;
+    border-radius: 40px;
+    color: #28a8be;
+    text-shadow: black 2px 0 0;
+}
+
+#textfin {
+    background-color: transparent;
+    width: 645px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 103%;
+    text-align: center;
+    text-shadow: white 3px 1px, white -3px 1px, white -3px -1px, white 3px -1px;
+}
+
+#img {
+    width: 60%;
+    margin-left: 22%;
+}
+
+
+
