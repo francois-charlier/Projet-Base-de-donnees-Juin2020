@@ -2,6 +2,7 @@
 /******************************************* Acceuil ****************************************/
 body {
     background-image: url("../imgs/fond.png");
+    width: 100%;
 }
 
 #button {
@@ -9,12 +10,12 @@ body {
 }
 
 #connexion {
-    width: 700px;
+    width: 55%;
     height: 80px;
     margin-bottom: 10px;
     border: 0;
     font-family: fantasy;
-    font-size: 40px;
+    font-size: 300%;
     background-color: #28a8be;
     border-radius: 40px;
     color: #f7931e;
@@ -22,12 +23,12 @@ body {
 }
 
 #inscription {
-    width: 700px;
+    width: 55%;
     height: 80px;
     margin-bottom: 10px;
     border: 0;
     font-family: fantasy;
-    font-size: 40px;
+    font-size: 300%;
     background-color: #f7931e;
     border-radius: 40px;
     color: #28a8be;
