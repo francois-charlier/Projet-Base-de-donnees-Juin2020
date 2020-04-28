@@ -178,6 +178,271 @@ input[type="date"] {
 }
 
 
+/************************************** Catégories **********************************************/
+
+#titreCategories{
+    width: 19%;
+    font-size: 230%;
+    font-weight: bold;
+    margin-left: 12.3%;
+    border: black solid 3px;
+    background-color: white;
+    border-radius: 10px;
+    margin-top: 2%;
+    text-align: center;
+}
+
+#boutonsCategories {
+    margin-top: 1%;
+    margin-left: 3%;
+}
+
+.boutonCategories1 {
+    width: 40%;
+    height: 85px;
+    margin-bottom: 10px;
+    border: 0;
+    font-family: fantasy;
+    font-size: 300%;
+    background-color: #28a8be;
+    border-radius: 40px;
+    color: #f7931e;
+    text-shadow: black 2px 0 0;
+    margin-top: 1%;
+}
+
+.boutonCategories2 {
+    width: 40%;
+    height: 85px;
+    margin-bottom: 10px;
+    border: 0;
+    font-family: fantasy;
+    font-size: 300%;
+    background-color: #f7931e;
+    border-radius: 40px;
+    color: #28a8be;
+    text-shadow: black 2px 0 0;
+    margin-top: 1%;
+}
+
+#imgCategories{
+    width: 60%;
+    float: right;
+    margin-top: 3.2%;
+}
+
+#profilCategories {
+    width: 4%;
+    float: right;
+    margin-right: 9%;
+    border: black solid 3px;
+    border-radius: 10px;
+    padding:0.5%;
+    padding-right: 1%;
+    padding-left: 1%;
+}
+
+/**************************************** SelectCatégorie ***********************************************/
+
+#boutonsSelectCateg {
+    margin-top: 1%;
+    margin-left: 3%;
+}
+
+.boutonSelectCateg1 {
+    width: 98%;
+    height: 85px;
+    margin-bottom: 10px;
+    border: 0;
+    font-size: 150%;
+    background-color: #28a8be;
+    border-radius: 40px;
+    color: #f7931e;
+    text-shadow: black 2px 0 0;
+    margin-top: 1%;
+}
+
+.boutonSelectCateg2 {
+    width: 98%;
+    height: 85px;
+    margin-bottom: 10px;
+    border: 0;
+    font-size: 150%;
+    border-radius: 40px;
+    color: #28a8be;
+    background-color: #f7931e;
+    text-shadow: black 2px 0 0;
+    margin-top: 1%;
+}
+
+#boutonsSansImage{
+    overflow-y: scroll;
+    height: 500px;
+}
+
+/***************************************** Profil ************************************************/
+
+#imageMonProfil {
+    width: 92%;
+    height: 50%;
+    padding-top: 15px;
+    padding-right: 4px;
+    padding-left: 4px;
+    border-bottom: black solid 3px;
+}
+
+#infoProfil1 {
+    width: 9%;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-top: 6%;
+    float: left;
+    background-color: white;
+    border-top: black solid 3px;
+    border-right: black solid 3px;
+    border-left: black solid 3px;
+}
+
+#infoProfil2 {
+    border-bottom: black solid 3px;
+    background-color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#boutonAnnulerProfil {
+    float: right;
+    width: 10%;
+    height: 40px;
+    background-color: red;
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 0;
+    margin-right: 3%;
+    font-size: 130%;
+    margin-top: 2%;
+}
+
+#divCreationSondage {
+    margin-left: 10%;
+    margin-top: 5%;
+    float: left;
+    width: 35%;
+}
+
+h1 {
+    margin-bottom: 10%;
+    border: solid black 3px;
+    width: 47%;
+    border-radius: 10px;
+    padding: 5%;
+    background-color: white;
+}
+
+.labelCreationSondage {
+    font-size: 200%;
+    background-color: white;
+    float: left;
+    width: 200px;
+    margin-top: 6px;
+}
+
+.inputCreationSondage {
+    width: 50%;
+    height: 50px;
+    margin-bottom: 5px;
+    border: 0;
+    font-size: 190%;
+    background-color: #28a8be;
+    border-radius: 40px;
+    color: black;
+    padding-left: 2%;
+}
+
+#question {
+    width: 48%;
+}
+
+#nbreponse {
+    width: 65px;
+    background-color: #f7931e;
+    margin-bottom: 1%;
+}
+
+.reponse {
+    background-color: #28a8be;
+    width: 25%;
+    height: 30px;
+    border: 0;
+    border-radius: 15px;
+    margin-bottom: 0.8%;
+    font-size: 150%;
+}
+
+#validerCreation {
+    width: 76%;
+    height: 50px;
+    margin-bottom: 30%;
+    border: 0;
+    font-size: 180%;
+    background-color: #5DEA69;
+    border-radius: 40px;
+    color: black;
+    margin-top: 4%;
+    margin-right: 38%;
+    text-align: center;
+}
+
+#ascenceurSondages {
+    width: 25%;
+    overflow-y: scroll;
+    height: 550px;
+    margin-top: 0.5%;
+    margin-right: 15%;
+    border-radius: 5px;
+    padding-top: 5px;
+    float: right;
+}
+
+.listeSondagesCrées1 {
+    width: 80%;
+    border: 0;
+    background-color: #28a8be;
+    height: 6%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.listeSondagesCrées2 {
+    width: 80%;
+    border: 0;
+    background-color: #f7931e;
+    height: 6%;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+#sondagesCréés h2 {
+    float: left;
+    margin-top: 2%;
+    margin-left: 1%;
+    font-weight: bold;
+    background-color: white;
+    border: black solid 3px;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+
+
+
+
+
 
 
 
