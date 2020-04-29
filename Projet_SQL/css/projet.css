@@ -438,6 +438,103 @@ h1 {
     padding: 3px;
 }
 
+/************************************************* Sondage *********************************************/
+
+#boutonAnnulerSondage {
+    float: left;
+    width: 10%;
+    height: 40px;
+    background-color: red;
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 0;
+    margin-left: 9%;
+    font-size: 130%;
+    margin-top: 1%;
+}
+
+#profilCreateur {
+    width: 10%;
+    float: right;
+    border: black solid 2px;
+    border-radius: 10px;
+    margin-top: 1%;
+    margin-right: 1%;
+    padding-left: 1%;
+}
+
+#sondage {
+    width: 70%;
+    margin-top: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 6%;
+    border: black solid 3px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#profilSondage {
+    width: 4%;
+    margin-left: 87%;
+    margin-top: 3%;
+    margin-right: 9%;
+    border: black solid 3px;
+    border-radius: 10px;
+    padding:0.5%;
+    padding-right: 1%;
+    padding-left: 1%;
+}
+
+h3 {
+    text-align: center;
+    margin-left: 11%;
+    margin-bottom: 7%;
+    font-size: 200%;
+}
+
+input[name="réponseSondage"] {
+    width: 49.8%;
+}
+
+#reponses {
+    width: 100%;
+}
+
+#reponses tr td {
+    text-align: center;
+    width: 49.8%;
+    font-size: 110%;
+}
+
+.reponseSondage {
+    border-right: 1px black solid;
+}
+
+#validerSondage {
+    width: 20%;
+    height: 50px;
+    margin-bottom: 2%;
+    border: 0;
+    font-size: 180%;
+    background-color: #5DEA69;
+    border-radius: 40px;
+    color: black;
+    margin-top: 2%;
+    margin-left: 40%;
+    text-align: center;
+}
+
+#nombresParticipants {
+    margin-left: 85%;
+    font-size: 150%;
+    width: 20%;
+}
+
+
+
+
 
 
 
