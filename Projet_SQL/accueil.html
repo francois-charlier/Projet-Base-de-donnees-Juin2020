@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>À votre avis ?</title>
+    <link href="css/projet.css" rel="stylesheet" type="text/css">
+    <script src="js/projet.js" type="text/javascript"></script>
+</head>
+<body>
+    <main id="accueil">
+        <div>
+            <img class="imgTop" src="imgs/logosondages.png" alt="logos">
+        </div>
+        <div id="buttonAccueil">
+            <button onclick="goToConnexion()" class="boutonAccueil" id="boutonConnexion" >Connexion</button><br>
+            <button onclick="goToInscription()" class="boutonAccueil" id="boutonInscription" >Inscription</button><br>
+            <button onclick="goToCateg()" class="boutonAccueil" id="boutonAnonyme" >Anonyme</button>
+        </div>
+        <p id="textfin">Projet Base de données juin 2020 de Maxime Lits, Matthew Everard et Charlier François. - EPHEC</p>
+    </main>
+
+    <main id="connexion" hidden>
+        <div>
+            <img class="imgTop" src="imgs/logosondages.png" alt="logos" onclick="location.reload()">
+        </div>
+        <div id="inputConnexion">
+            <form id="formConnexion" onsubmit="return connexion(this)" action="#">
+                <label class="labelConnexion">Pseudo :</label>
+                <input type="text" id="pseudoConnexion" placeholder="Pseudo..."><br>
+                <label class="labelConnexion">Mot de passe :</label>
+                <input type="text" id="motdepasseConnexion" placeholder="Mot  de passe..."><br>
+                <input type="submit" id="validerConnexion" value="Valider">
+            </form>
+        </div>
+    </main>
+
+    <main id="inscription" hidden>
+        <div>
+            <img class="imgTop" src="imgs/logosondages.png" alt="logos" onclick="location.reload()">
+        </div>
+        <div id="inputInscription">
+            <form id="formInscription" action="#" onsubmit="return inscription(this)">
+                <label class="labelInscription">Nom :</label>
+                <input name="nom" type="text" required class="inputInscription1" placeholder="Nom..."><br>
+                <label class="labelInscription">Prénom :</label>
+                <input name="prenom" type="text" required class="inputInscription2" placeholder="Prénom..."><br>
+                <label class="labelInscription">Pseudo :</label>
+                <input name="pseudo" type="text" required class="inputInscription1" placeholder="Pseudo..."><br>
+                <label class="labelInscription">Mot de passe :</label>
+                <input name="motDePasse" type="text" required class="inputInscription2" placeholder="Mot de passe..."><br>
+                <label class="labelInscription">Adresse email :</label>
+                <input name="adresseMail" type="text" required class="inputInscription1" placeholder="Adresse email..."><br>
+                <label class="labelInscription">Date de naissance :</label>
+                <input name="date" type="date" required class="inputInscription2"><br>
+                <label class="labelInscription">Genre :</label>
+                <input  type="radio" name="genre" value="M" checked>
+                <img src="imgs/mec.png" alt="Symbole genre Homme" id="symboleMec">
+                <input type="radio" name="genre" value="F">
+                <img src="imgs/fille.png" alt="Symbole genre Femme" id="symboleFille">
+                <input type="radio" name="genre" value="Autre">
+                <img src="imgs/autre.png" alt="Symbole genre Autre" id="symboleAutre"><br>
+                <label id="caché" class="labelInscription"></label>
+                <input type="submit" id="validerInscription" value="Valider">
+            </form>
+        </div>
+    </main>
+
+    <main id="categories" hidden>
+        <div class="photoProfilAnonyme">
+            <img class="profilCategories" src="imgs/monProfil.png" alt="Image de profil" onclick="goToProfil()">
+        </div>
+        <div class="titreCategories">
+            <p>Catégories</p>
+        </div>
+        <div id="boutonsCategories">
+            <img class="imgCategories" src="imgs/logosondages.png" alt="logos">
+            <button onclick="goToSelectCateg('Jeux-vidéos')" class="boutonCategories1">Jeux-vidéos</button><br>
+            <button onclick="goToSelectCateg('Nourriture')" class="boutonCategories2">Nourriture</button></button><br>
+            <button onclick="goToSelectCateg('Politique')" class="boutonCategories1">Politique</button></button><br>
+            <button onclick="goToSelectCateg('Cinéma')" class="boutonCategories2">Cinéma</button></button><br>
+            <button onclick="goToSelectCateg('Social')" class="boutonCategories1">Social</button></button>
+        </div>
+    </main>
+
+    <main id="selectCateg" hidden>
+        <div class="photoProfilAnonyme">
+            <img class="profilCategories" src="imgs/monProfil.png" alt="Image de profil" onclick="goToProfil()">
+        </div>
+        <div class="titreCategories">
+            <p id="titreSelectCateg">Jeux-vidéos</p>
+        </div>
+        <div id="boutonsSelectCateg">
+            <img class="imgCategories" src="imgs/logosondages.png" alt="logos">
+            <div id="boutonsSansImage">
+                <button onclick="goToSondage()" class="boutonSelectCateg1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button><br>
+                <button onclick="" class="boutonSelectCateg2">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button><br>
+                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
+                <button onclick="" class="boutonSelectCateg2">Questions des sondages?</button><br>
+                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
+                <button onclick="" class="boutonSelectCateg2">Questions des sondages?</button><br>
+                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
+                <button onclick="" class="boutonSelectCateg2">Questions des sondages?</button><br>
+                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
+                <button onclick="" class="boutonSelectCateg2">Questions des sondages?</button><br>
+                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
+            </div>
+            <button id="boutonRetourCateg" onclick="goToCateg()">Retour</button>
+        </div>
+    </main>
+
+    <main id="sondage" hidden>
+        <div class="photoProfilAnonyme">
+            <img id="profilSondage" src="imgs/monProfil.png" alt="Image de profil" onclick="goToProfil()">
+        </div>
+        <div id="sondageType">
+            <img id="profilCreateur" src="imgs/profilAutres.png" alt="Image de profil du créateur" onclick="goToProfil()">
+            <h3>AZERTYUIOPQSDFGHJKLWXCVBN ?</h3>
+            <form id="boutonsSondage">
+                <input type="radio" name="réponseSondage">
+                <input type="radio" name="réponseSondage">
+            </form>
+            <table id="reponses">
+                <tr>
+                    <td class="reponseSondage">coucou</td>
+                    <td>intergouvernementalisations</td>
+                </tr>
+            </table>
+            <button type="button" id="validerSondage">Valider</button>
+            <p id="nombresParticipants">40000 participants</p>
+        </div>
+        <div>
+            <button id="boutonAnnulerSondage" onclick="goToCateg()">Retour</button>
+        </div>
+    </main>
+
+    <main id="profil" hidden>
+        <div>
+            <button id="boutonAnnulerProfil" onclick="goToCateg()">Retour</button>
+        </div>
+        <div id="infoProfil1">
+            <img src="imgs/monProfil.png" id="imageMonProfil">
+            <div id="infoProfil2">
+                <p>Francois</p>
+                <p>Charlier</p>
+                <p>charlierfr@outlook.fr</p>
+                <p>Zaboudi</p>
+                <p>27-03-99</p>
+                <p>Homme</p>
+            </div>
+        </div>
+        <div id="divCreationSondage">
+            <h1>Création d'un sondage</h1>
+            <form id="creationSondage">
+                <label class="labelCreationSondage">Question :</label>
+                <input type="text" required class="inputCreationSondage" id="question" placeholder="Question..."><br>
+                <label class="labelCreationSondage">Catégorie :</label>
+                <select class="inputCreationSondage2">
+                    <option value="jeuxVideo">Jeux-vidéo</option>
+                    <option value="politique">Politique</option>
+                    <option value="cinema">Cinéma</option>
+                    <option value="social">Social</option>
+                    <option value="nourriture">Nourriture</option>
+                </select><br>
+                <label class="labelCreationSondage">Réponses :</label>
+                <select class="inputCreationSondage" id="nbreponse">
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select><br>
+                <input type="text" class="reponse" placeholder="Réponse...">
+                <input type="text" class="reponse" placeholder="Réponse...">
+                <input type="text" class="reponse" placeholder="Réponse...">
+                <input type="text" class="reponse" placeholder="Réponse...">
+                <input type="text" class="reponse" placeholder="Réponse...">
+                <input type="text" class="reponse" placeholder="Réponse...">
+
+                <input type="submit" value="Valider la création du sondage" id="validerCreation">
+            </form>
+        </div>
+        <div id="sondagesCréés">
+            <h2 id="titreListeSondages">Voici les sondages créés par l'utilisateur [Pseudo] </h2><br>
+            <div id="ascenceurSondages">
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées2">AZERTYUIOPQSDFGHJKLM</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+                <button type="button" class="listeSondagesCrées1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

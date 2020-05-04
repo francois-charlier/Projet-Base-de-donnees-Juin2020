@@ -1,15 +1,15 @@
 
-/******************************************* Acceuil ****************************************/
+/******************************************* Accueil ****************************************/
 body {
     background-image: url("../imgs/fond.png");
     width: 100%;
 }
 
-#button {
+#buttonAccueil {
     margin-left: 33%;
 }
 
-#connexion {
+#boutonConnexion {
     width: 55%;
     height: 80px;
     margin-bottom: 10px;
@@ -22,7 +22,7 @@ body {
     text-shadow: black 2px 0 0;
 }
 
-#inscription {
+#boutonInscription {
     width: 55%;
     height: 80px;
     margin-bottom: 10px;
@@ -35,6 +35,20 @@ body {
     text-shadow: black 2px 0 0;
 }
 
+#boutonAnonyme {
+    width: 55%;
+    height: 80px;
+    margin-bottom: 10px;
+    border: 0;
+    font-family: fantasy;
+    font-size: 300%;
+    background-color: #28a8be;
+    border-radius: 40px;
+    color: #f7931e;
+    text-shadow: black 2px 0 0;
+}
+
+
 #textfin {
     background-color: transparent;
     width: 645px;
@@ -46,7 +60,7 @@ body {
     text-shadow: white 3px 1px, white -3px 1px, white -3px -1px, white 3px -1px;
 }
 
-#img {
+.imgTop {
     width: 60%;
     margin-left: 22%;
     margin-bottom: 45px;
@@ -55,11 +69,11 @@ body {
 
 /*********************************************** Connexion ******************************************************/
 
-#input {
+#inputConnexion {
     margin-left: 33%;
 }
 
-#pseudo {
+#pseudoConnexion {
     width: 35%;
     height: 80px;
     margin-bottom: 10px;
@@ -71,7 +85,7 @@ body {
     padding-left: 2%;
 }
 
-#motdepasse {
+#motdepasseConnexion {
     width: 35%;
     height: 80px;
     margin-bottom: 10px;
@@ -83,7 +97,7 @@ body {
     padding-left: 2%;
 }
 
-.label {
+.labelConnexion {
     font-size: 250%;
     background-color: white;
     float: left;
@@ -91,7 +105,7 @@ body {
     margin-top: 15px;
 }
 
-#valider {
+#validerConnexion {
     width: 20%;
     height: 60px;
     margin-bottom: 10px;
@@ -180,7 +194,7 @@ input[type="date"] {
 
 /************************************** Catégories **********************************************/
 
-#titreCategories{
+.titreCategories{
     width: 19%;
     font-size: 230%;
     font-weight: bold;
@@ -225,13 +239,13 @@ input[type="date"] {
     margin-top: 1%;
 }
 
-#imgCategories{
+.imgCategories{
     width: 60%;
     float: right;
     margin-top: 3.2%;
 }
 
-#profilCategories {
+.profilCategories {
     width: 4%;
     float: right;
     margin-right: 9%;
@@ -278,6 +292,20 @@ input[type="date"] {
 #boutonsSansImage{
     overflow-y: scroll;
     height: 500px;
+}
+
+#boutonRetourCateg {
+    float: left;
+    width: 10%;
+    height: 40px;
+    background-color: red;
+    color: black;
+    font-weight: bold;
+    border-radius: 20px;
+    border: 0;
+    margin-right: 3%;
+    font-size: 130%;
+    margin-top: 2%;
 }
 
 /***************************************** Profil ************************************************/
@@ -351,6 +379,17 @@ h1 {
 }
 
 .inputCreationSondage {
+    width: 50%;
+    height: 50px;
+    margin-bottom: 5px;
+    border: 0;
+    font-size: 190%;
+    background-color: #f7931e;
+    border-radius: 40px;
+    color: black;
+    padding-left: 2%;
+}
+.inputCreationSondage2 {
     width: 50%;
     height: 50px;
     margin-bottom: 5px;
@@ -464,7 +503,7 @@ h1 {
     padding-left: 1%;
 }
 
-#sondage {
+#sondageType {
     width: 70%;
     margin-top: 5%;
     margin-left: 15%;
