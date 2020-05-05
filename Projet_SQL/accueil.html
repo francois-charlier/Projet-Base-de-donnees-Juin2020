@@ -28,8 +28,9 @@
                 <label class="labelConnexion">Pseudo :</label>
                 <input type="text" id="pseudoConnexion" placeholder="Pseudo..."><br>
                 <label class="labelConnexion">Mot de passe :</label>
-                <input type="text" id="motdepasseConnexion" placeholder="Mot  de passe..."><br>
+                <input type="password" id="motdepasseConnexion" placeholder="Mot  de passe..."><br>
                 <input type="submit" id="validerConnexion" value="Valider">
+                <p id="messageErreur3"hidden>Pseudo ou mot de passe invalide !</p>
             </form>
         </div>
     </main>
@@ -47,7 +48,7 @@
                 <label class="labelInscription">Pseudo :</label>
                 <input name="pseudo" type="text" required class="inputInscription1" placeholder="Pseudo..."><br>
                 <label class="labelInscription">Mot de passe :</label>
-                <input name="motDePasse" type="text" required class="inputInscription2" placeholder="Mot de passe..."><br>
+                <input name="motDePasse" type="password" required class="inputInscription2" placeholder="Mot de passe..."><br>
                 <label class="labelInscription">Adresse email :</label>
                 <input name="adresseMail" type="text" required class="inputInscription1" placeholder="Adresse email..."><br>
                 <label class="labelInscription">Date de naissance :</label>
@@ -57,10 +58,12 @@
                 <img src="imgs/mec.png" alt="Symbole genre Homme" id="symboleMec">
                 <input type="radio" name="genre" value="F">
                 <img src="imgs/fille.png" alt="Symbole genre Femme" id="symboleFille">
-                <input type="radio" name="genre" value="Autre">
+                <input type="radio" name="genre" value="A">
                 <img src="imgs/autre.png" alt="Symbole genre Autre" id="symboleAutre"><br>
                 <label id="caché" class="labelInscription"></label>
                 <input type="submit" id="validerInscription" value="Valider">
+                <p id="messageErreur1" hidden>L'adresse Mail ou le pseudo a déjà été utilisé !</p>
+                <p id="messageErreur2" hidden>Le mot passe doit faire un minimum de 8 charactères !</p>
             </form>
         </div>
     </main>
@@ -140,41 +143,41 @@
         <div id="infoProfil1">
             <img src="imgs/monProfil.png" id="imageMonProfil">
             <div id="infoProfil2">
-                <p>Francois</p>
-                <p>Charlier</p>
-                <p>charlierfr@outlook.fr</p>
-                <p>Zaboudi</p>
-                <p>27-03-99</p>
-                <p>Homme</p>
+                <p id="pseudo"></p>
+                <p id="prenom"></p>
+                <p id="nom"></p>
+                <p id="mail"></p>
+                <p id="date"></p>
+                <p id="sexe"></p>
             </div>
         </div>
         <div id="divCreationSondage">
             <h1>Création d'un sondage</h1>
-            <form id="creationSondage">
+            <form id="creationSondage" onsubmit="return creationSondage(this)" action="#">
                 <label class="labelCreationSondage">Question :</label>
-                <input type="text" required class="inputCreationSondage" id="question" placeholder="Question..."><br>
+                <input type="text" name="question" required class="inputCreationSondage" id="question" placeholder="Question..." max="200"><br>
                 <label class="labelCreationSondage">Catégorie :</label>
-                <select class="inputCreationSondage2">
-                    <option value="jeuxVideo">Jeux-vidéo</option>
-                    <option value="politique">Politique</option>
-                    <option value="cinema">Cinéma</option>
-                    <option value="social">Social</option>
-                    <option value="nourriture">Nourriture</option>
+                <select class="inputCreationSondage2" name="categorie">
+                    <option value="J">Jeux-vidéo</option>
+                    <option value="P">Politique</option>
+                    <option value="C">Cinéma</option>
+                    <option value="S">Social</option>
+                    <option value="N">Nourriture</option>
                 </select><br>
                 <label class="labelCreationSondage">Réponses :</label>
-                <select class="inputCreationSondage" id="nbreponse">
+                <select class="inputCreationSondage" id="nbreponse" onchange="nombresReponse(this.value)">
                     <option>2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
                     <option>6</option>
                 </select><br>
-                <input type="text" class="reponse" placeholder="Réponse...">
-                <input type="text" class="reponse" placeholder="Réponse...">
-                <input type="text" class="reponse" placeholder="Réponse...">
-                <input type="text" class="reponse" placeholder="Réponse...">
-                <input type="text" class="reponse" placeholder="Réponse...">
-                <input type="text" class="reponse" placeholder="Réponse...">
+                <input id="reponse1" type="text" class="reponse" placeholder="Réponse..." max="100" name="rep1">
+                <input id="reponse2" type="text" class="reponse" placeholder="Réponse..." max="100" name="rep2">
+                <input id="reponse3" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep3">
+                <input id="reponse4" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep4">
+                <input id="reponse5" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep5">
+                <input id="reponse6" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep6">
 
                 <input type="submit" value="Valider la création du sondage" id="validerCreation">
             </form>

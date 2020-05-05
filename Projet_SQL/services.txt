@@ -1,5 +1,5 @@
 Services :
--> Accueil ( permet de choisir si on s'incrit ou se connecte à notre user, page d'acceuil du site. )
+-> Accueil ( permet de choisir si on s'incrit ou se connecte à notre user, page d'accueil du site. )
 
 -> Connection ( permet de se connecter a son compte,  2 paramètres qui sont pseudo et mot de passe )
 
