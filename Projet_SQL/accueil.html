@@ -50,7 +50,7 @@
                 <label class="labelInscription">Mot de passe :</label>
                 <input name="motDePasse" type="password" required class="inputInscription2" placeholder="Mot de passe..."><br>
                 <label class="labelInscription">Adresse email :</label>
-                <input name="adresseMail" type="text" required class="inputInscription1" placeholder="Adresse email..."><br>
+                <input name="adresseMail" type="email" required class="inputInscription1" placeholder="Adresse email..."><br>
                 <label class="labelInscription">Date de naissance :</label>
                 <input name="date" type="date" required class="inputInscription2"><br>
                 <label class="labelInscription">Genre :</label>
@@ -166,7 +166,7 @@
                 </select><br>
                 <label class="labelCreationSondage">Réponses :</label>
                 <select class="inputCreationSondage" id="nbreponse" onchange="nombresReponse(this.value)">
-                    <option>2</option>
+                    <option id="selected">2</option>
                     <option>3</option>
                     <option>4</option>
                     <option>5</option>
@@ -180,6 +180,7 @@
                 <input id="reponse6" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep6">
 
                 <input type="submit" value="Valider la création du sondage" id="validerCreation">
+                <p id="sondageBienCree" hidden>Le Sondage a bien été créé.</p>
             </form>
         </div>
         <div id="sondagesCréés">

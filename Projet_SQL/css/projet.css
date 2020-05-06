@@ -450,7 +450,6 @@ h1 {
 #validerCreation {
     width: 76%;
     height: 50px;
-    margin-bottom: 30%;
     border: 0;
     font-size: 180%;
     background-color: #5DEA69;
@@ -501,6 +500,14 @@ h1 {
     border: black solid 3px;
     border-radius: 5px;
     padding: 3px;
+}
+
+#sondageBienCree {
+    color: lawngreen;
+    background-color: white;
+    font-size: 200%;
+    width: 54%;
+    margin-left: 12%;
 }
 
 /************************************************* Sondage *********************************************/
