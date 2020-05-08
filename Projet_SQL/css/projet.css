@@ -566,22 +566,28 @@ h3 {
     font-size: 200%;
 }
 
-input[name="réponseSondage"] {
-    width: 49.8%;
+input[name="reponseSondage"] {
 }
 
-#reponses {
+.boutonSondage,#reponses,#pourcentReponses {
     width: 100%;
 }
 
 #reponses tr td {
     text-align: center;
-    width: 49.8%;
     font-size: 110%;
+    color: black;
 }
 
 .reponseSondage {
     border-right: 1px black solid;
+    text-align: center;
+    font-size: 200%;
+    color: #f7931e;
+}
+
+.reponseSondage:last-child {
+    border: 0;
 }
 
 #validerSondage {
@@ -595,6 +601,20 @@ input[name="réponseSondage"] {
     color: black;
     margin-top: 2%;
     margin-left: 40%;
+    text-align: center;
+}
+
+#voirResultats {
+    width: 25%;
+    height: 50px;
+    margin-bottom: 2%;
+    border: 0;
+    font-size: 180%;
+    background-color: #28a8be;
+    border-radius: 40px;
+    color: black;
+    margin-top: 2%;
+    margin-left: 37.5%;
     text-align: center;
 }
 

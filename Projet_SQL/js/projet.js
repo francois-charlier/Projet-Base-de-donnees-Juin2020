@@ -6,6 +6,8 @@ let anonyme = true;
 
 let idConnecté;
 
+let sondageOuvert;
+
 /******************************************** Fonctions Utiles*********************************************************/
 
 function getElemId(param) {
@@ -44,11 +46,12 @@ function goToCateg() {
     estAnonyme();
 }
 
-function goToSelectCateg(param) {
+function goToSelectCateg(param1,param2) {
+    getSondagesOfCateg(param1);
     getElemId('categories').hidden = true;
     getElemId('selectCateg').hidden = false;
 
-    getElemId('titreSelectCateg').innerText = param;
+    getElemId('titreSelectCateg').innerText = param2;
 
     estAnonyme();
 }
@@ -66,6 +69,11 @@ function goToProfil() {
 function goToSondage() {
     getElemId('selectCateg').hidden = true;
     getElemId('sondage').hidden = false;
+    getElemId('validerSondage').hidden = false;
+    getElemId('validerSondage').hidden = false;
+    getElemId('voirResultats').hidden = true;
+    getElemId('zonePourcentReponse').hidden = true;
+    getElemId('zoneReponse').innerHTML = "";
 
     estAnonyme();
 }
@@ -370,6 +378,92 @@ function creationSondage(formulaire) {
     }
     return false;
 }
+
+function getSondagesOfCateg(param) {
+    let boutons = "";
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', 'http://localhost/get_sondages?categ=' + param, true);
+    xhr.onload = function () {
+        let tableau = JSON.parse(xhr.responseText);
+        let compteur = 0;
+        for(let i of tableau) {
+            if (compteur % 2 == 0) {
+                boutons += "<button onclick=\"ouvrireSondage("+ i.sondId +")\" class=\"boutonSelectCateg1\">"+ i.sondTitre +"</button><br>"
+            }
+            else {
+                boutons += "<button onclick=\"ouvrireSondage("+ i.sondId +")\" class=\"boutonSelectCateg2\">"+ i.sondTitre +"</button><br>"
+            }
+            compteur++;
+        }
+        getElemId('boutonsSansImage').innerHTML = boutons;
+    };
+    xhr.send();
+}
+
+function ouvrireSondage(param) {
+    sondageOuvert = param;
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', 'http://localhost/get_sondage?sondId=' + param, true);
+    xhr.onload = function () {
+        let compteur = 0;
+        let tds = "";
+        let boutonsRep = "";
+        let tableau = JSON.parse(xhr.responseText);
+        let nbReponses = tableau.length;
+        let largeur = (100/nbReponses) - 0.2 ;
+        getElemId('titreSondage').innerText = tableau[0].sondTitre;
+        getElemId('nombresParticipants').innerText = tableau[0].nbParticipant + " participant(s)";
+        for (let i of tableau) {
+            compteur++;
+            boutonsRep+= "<input type=\"radio\" value=\"" +compteur+ "\" class=\"boutonReponse\" name=\"reponseSondage\" required>";
+            tds+= "<td class=\"reponseSondage\" width=\""+ largeur +"%\" >"+ i.reponse +"</td>";
+        }
+        getElemId('zoneReponse').innerHTML = tds;
+        getElemId('boutonsSondage').innerHTML = boutonsRep;
+        getElemId('validerSondage').onclick = function() { validerParticipation(param)};
+        let largeur2 = document.querySelectorAll('#boutonsSondage input');
+        for (let i of largeur2) {
+            i.style.width = (100/nbReponses) - 0.1 + '%';
+        }
+    };
+    xhr.send();
+    goToSondage();
+}
+
+function validerParticipation(sondId) {
+    if (getElemId('boutonsSondage').reponseSondage.value != "") {
+        let reponseCheck = getElemId('boutonsSondage').reponseSondage.value;
+        let xhr = new XMLHttpRequest();
+        xhr.open('get', 'http://localhost/get_addCheck?sondId='+ sondId + '&repId=' + reponseCheck, true);
+        xhr.send();
+        let txt = getElemId('nombresParticipants').innerText;
+        getElemId('nombresParticipants').innerText = Number(txt.match(/\d/g).join("")) + 1 + " participant(s)";
+        getElemId('validerSondage').hidden = true;
+        getElemId('voirResultats').hidden = false;
+    }
+}
+
+function voirResultats() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', 'http://localhost/get_sondage?sondId=' + sondageOuvert, true);
+    xhr.onload = function afficherPourcents() {
+        let tds = "";
+        let tableau = JSON.parse(xhr.responseText);
+        let nbReponses = tableau.length;
+        let nbParticipants = tableau[0].nbParticipant;
+        let largeur = (100/nbReponses) - 0.2 ;
+        let calcul;
+        for (let i of tableau) {
+            calcul = i.nbCheck*100/nbParticipants;
+            tds+= "<td class=\"reponseSondage\" width=\""+ largeur +"%\" >"+ calcul.toFixed(2) +"%</td>";
+        }
+        getElemId('zonePourcentReponse').innerHTML = tds;
+        getElemId('zonePourcentReponse').hidden = false;
+    };
+    xhr.send();
+}
+
 
 
 

@@ -77,11 +77,11 @@
         </div>
         <div id="boutonsCategories">
             <img class="imgCategories" src="imgs/logosondages.png" alt="logos">
-            <button onclick="goToSelectCateg('Jeux-vidéos')" class="boutonCategories1">Jeux-vidéos</button><br>
-            <button onclick="goToSelectCateg('Nourriture')" class="boutonCategories2">Nourriture</button></button><br>
-            <button onclick="goToSelectCateg('Politique')" class="boutonCategories1">Politique</button></button><br>
-            <button onclick="goToSelectCateg('Cinéma')" class="boutonCategories2">Cinéma</button></button><br>
-            <button onclick="goToSelectCateg('Social')" class="boutonCategories1">Social</button></button>
+            <button onclick="goToSelectCateg('J','Jeux-vidéos')" class="boutonCategories1">Jeux-vidéos</button><br>
+            <button onclick="goToSelectCateg('N','Nourriture')" class="boutonCategories2">Nourriture</button></button><br>
+            <button onclick="goToSelectCateg('P','Politique')" class="boutonCategories1">Politique</button></button><br>
+            <button onclick="goToSelectCateg('C','Cinéma')" class="boutonCategories2">Cinéma</button></button><br>
+            <button onclick="goToSelectCateg('S','Social')" class="boutonCategories1">Social</button></button>
         </div>
     </main>
 
@@ -95,17 +95,7 @@
         <div id="boutonsSelectCateg">
             <img class="imgCategories" src="imgs/logosondages.png" alt="logos">
             <div id="boutonsSansImage">
-                <button onclick="goToSondage()" class="boutonSelectCateg1">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button><br>
-                <button onclick="" class="boutonSelectCateg2">Que préférez vous entre les spaghettis et les pizzas? Et aussi vous etes cons lol Et si j'écrivais encore plus?</button><br>
-                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
-                <button onclick="" class="boutonSelectCateg2">Questions des sondages?</button><br>
-                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
-                <button onclick="" class="boutonSelectCateg2">Questions des sondages?</button><br>
-                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
-                <button onclick="" class="boutonSelectCateg2">Questions des sondages?</button><br>
-                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
-                <button onclick="" class="boutonSelectCateg2">Questions des sondages?</button><br>
-                <button onclick="" class="boutonSelectCateg1">Questions des sondages?</button><br>
+
             </div>
             <button id="boutonRetourCateg" onclick="goToCateg()">Retour</button>
         </div>
@@ -117,19 +107,23 @@
         </div>
         <div id="sondageType">
             <img id="profilCreateur" src="imgs/profilAutres.png" alt="Image de profil du créateur" onclick="goToProfil()">
-            <h3>AZERTYUIOPQSDFGHJKLWXCVBN ?</h3>
+            <h3 id="titreSondage"></h3>
             <form id="boutonsSondage">
-                <input type="radio" name="réponseSondage">
-                <input type="radio" name="réponseSondage">
+
             </form>
             <table id="reponses">
-                <tr>
-                    <td class="reponseSondage">coucou</td>
-                    <td>intergouvernementalisations</td>
+                <tr id="zoneReponse">
+
+                </tr>
+            </table><br>
+            <table id="pourcentReponses">
+                <tr id="zonePourcentReponse">
+
                 </tr>
             </table>
             <button type="button" id="validerSondage">Valider</button>
-            <p id="nombresParticipants">40000 participants</p>
+            <button type="button" id="voirResultats" onclick="voirResultats()" hidden>Voir résultats</button>
+            <p id="nombresParticipants" value="0"></p>
         </div>
         <div>
             <button id="boutonAnnulerSondage" onclick="goToCateg()">Retour</button>
