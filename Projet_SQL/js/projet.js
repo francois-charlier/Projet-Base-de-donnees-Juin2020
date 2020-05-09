@@ -4,9 +4,11 @@
 
 let anonyme = true;
 
-let idConnecté;
+let idConnecte;
 
 let sondageOuvert;
+
+let idCreateur;
 
 /******************************************** Fonctions Utiles*********************************************************/
 
@@ -58,16 +60,25 @@ function goToSelectCateg(param1,param2) {
 
 function goToProfil() {
     infoProfil();
+    sondagesOfProfil();
     getElemId('selectCateg').hidden = true;
     getElemId('categories').hidden = true;
     getElemId('profil').hidden = false;
     getElemId('sondage').hidden = true;
+    getElemId('divCreationSondage').hidden = false;
+
+    getElemId('titreListeSondages').style.width = "";
+    getElemId('titreListeSondages').style.textAlign = "";
+    getElemId('titreListeSondages').style.marginLeft = "1%";
+    getElemId('ascenceurSondages').style.cssFloat = "right";
+    getElemId('ascenceurSondages').style.marginLeft = "";
 
     estAnonyme();
 }
 
 function goToSondage() {
     getElemId('selectCateg').hidden = true;
+    getElemId('profil').hidden = true;
     getElemId('sondage').hidden = false;
     getElemId('validerSondage').hidden = false;
     getElemId('validerSondage').hidden = false;
@@ -96,7 +107,7 @@ function connexion(formulaire){
     let motDePasse = getElemId('motdepasseConnexion').value;
 
     let xhr = new XMLHttpRequest();
-    xhr.open('get', 'http://localhost/usersTable?param=999', true);
+    xhr.open('get', 'http://localhost/get_usersTable?secu=999', true);
     xhr.onload = function jsonToTable() {
         tableUsers =  JSON.parse(xhr.responseText);
         let compteur = 0;
@@ -104,7 +115,7 @@ function connexion(formulaire){
             compteur++;
             if (pseudo == i.userPseudo && motDePasse== i.userPassword) {
                anonyme = false;
-               idConnecté = i.userId;
+               idConnecte = i.userId;
                 getElemId('connexion').hidden = true;
                 getElemId('categories').hidden = false;
             }
@@ -132,7 +143,7 @@ function inscription(formualire) {
 
     if (motDePasse.length >= 8) {
         let xhr = new XMLHttpRequest();
-        xhr.open('get', 'http://localhost/usersTable?param=999', true);
+        xhr.open('get', 'http://localhost/get_usersTable?secu=999', true);
         xhr.onload = function jsonToTable() {
             let compteur = 0;
             let check = true;
@@ -148,7 +159,7 @@ function inscription(formualire) {
 
                 if (check && compteur == tableUsers.length){
                     let xhr2 = new XMLHttpRequest;
-                    xhr2.open('get', 'http://localhost/createUser?nom=' + nom + '&prenom=' + prenom + '&pseudo=' + pseudo + '&motDePasse=' + motDePasse + '&mail=' + adresseMail + '&naissance=' + date + '&sexe='+ genre, true);
+                    xhr2.open('get', 'http://localhost/get_createUser?nom=' + nom + '&prenom=' + prenom + '&pseudo=' + pseudo + '&motDePasse=' + motDePasse + '&mail=' + adresseMail + '&naissance=' + date + '&sexe='+ genre, true);
                     xhr2.send();
                     formualire.nom.value = "";
                     formualire.prenom.value="";
@@ -176,11 +187,11 @@ function infoProfil() {
     let tableUsers;
     debugger;
     let xhr = new XMLHttpRequest();
-    xhr.open('get', 'http://localhost/usersTable?param=999', true);
+    xhr.open('get', 'http://localhost/get_usersTable?secu=999', true);
     xhr.onload = function jsonToTable() {
         tableUsers =  JSON.parse(xhr.responseText);
         for (let i of tableUsers) {
-            if (idConnecté == i.userId) {
+            if (idConnecte == i.userId) {
                 let sexe = i.userSexe;
                 if (sexe = "M") {
                     sexe = "homme";
@@ -198,8 +209,8 @@ function infoProfil() {
                 getElemId('mail').innerText = i.userMail;
                 getElemId('date').innerText = i.userDate;
                 getElemId('sexe').innerText = "Sexe : " + sexe;
-
-            }
+                getElemId('titreListeSondages').innerText = "Voici les sondages créés par l'utilisateur " + i.userPseudo;
+            }   
         }
     };
     xhr.send();
@@ -253,7 +264,7 @@ function nombresReponse(param) {
 function creationSondage(formulaire) {
 
     if (getElemId('nbreponse').value == 3) {
-        let idUser = idConnecté;
+        let idUser = idConnecte;
         let question = formulaire.question.value;
         let categ = formulaire.categorie.value;
         let rep1 = formulaire.rep1.value;
@@ -264,7 +275,7 @@ function creationSondage(formulaire) {
         let rep6 = '0';
 
         let xhr = new XMLHttpRequest;
-        xhr.open('get', 'http://localhost/createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
+        xhr.open('get', 'http://localhost/get_createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
         xhr.send();
 
         formulaire.question.value = "";
@@ -277,7 +288,7 @@ function creationSondage(formulaire) {
     }
 
     else if (getElemId('nbreponse').value == 4) {
-        let idUser = idConnecté;
+        let idUser = idConnecte;
         let question = formulaire.question.value;
         let categ = formulaire.categorie.value;
         let rep1 = formulaire.rep1.value;
@@ -288,7 +299,7 @@ function creationSondage(formulaire) {
         let rep6 = '0';
 
         let xhr = new XMLHttpRequest;
-        xhr.open('get', 'http://localhost/createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
+        xhr.open('get', 'http://localhost/get_createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
         xhr.send();
 
         formulaire.question.value = "";
@@ -302,7 +313,7 @@ function creationSondage(formulaire) {
     }
 
     else if (getElemId('nbreponse').value == 5) {
-        let idUser = idConnecté;
+        let idUser = idConnecte;
         let question = formulaire.question.value;
         let categ = formulaire.categorie.value;
         let rep1 = formulaire.rep1.value;
@@ -313,7 +324,7 @@ function creationSondage(formulaire) {
         let rep6 = '0';
 
         let xhr = new XMLHttpRequest;
-        xhr.open('get', 'http://localhost/createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
+        xhr.open('get', 'http://localhost/get_createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
         xhr.send();
 
         formulaire.question.value = "";
@@ -328,7 +339,7 @@ function creationSondage(formulaire) {
     }
 
     else if (getElemId('nbreponse').value == 6) {
-        let idUser = idConnecté;
+        let idUser = idConnecte;
         let question = formulaire.question.value;
         let categ = formulaire.categorie.value;
         let rep1 = formulaire.rep1.value;
@@ -339,7 +350,7 @@ function creationSondage(formulaire) {
         let rep6 = formulaire.rep6.value;
 
         let xhr = new XMLHttpRequest;
-        xhr.open('get', 'http://localhost/createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
+        xhr.open('get', 'http://localhost/get_createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
         xhr.send();
 
         formulaire.question.value = "";
@@ -355,7 +366,7 @@ function creationSondage(formulaire) {
     }
 
     else {
-        let idUser = idConnecté;
+        let idUser = idConnecte;
         let question = formulaire.question.value;
         let categ = formulaire.categorie.value;
         let rep1 = formulaire.rep1.value;
@@ -366,7 +377,7 @@ function creationSondage(formulaire) {
         let rep6 = '0';
 
         let xhr = new XMLHttpRequest;
-        xhr.open('get', 'http://localhost/createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
+        xhr.open('get', 'http://localhost/get_createSondage?userId=' + idUser + '&question=' + question + '&categId=' + categ + '&rep1=' + rep1 + '&rep2=' + rep2 + '&rep3=' + rep3 + '&rep4='+ rep4 + '&rep5=' + rep5 + '&rep6=' + rep6, true);
         xhr.send();
 
         formulaire.question.value = "";
@@ -414,6 +425,7 @@ function ouvrireSondage(param) {
         let largeur = (100/nbReponses) - 0.2 ;
         getElemId('titreSondage').innerText = tableau[0].sondTitre;
         getElemId('nombresParticipants').innerText = tableau[0].nbParticipant + " participant(s)";
+        idCreateur = tableau[0].userId;
         for (let i of tableau) {
             compteur++;
             boutonsRep+= "<input type=\"radio\" value=\"" +compteur+ "\" class=\"boutonReponse\" name=\"reponseSondage\" required>";
@@ -464,8 +476,90 @@ function voirResultats() {
     xhr.send();
 }
 
+function goToProfilCreateur() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('get','http://localhost/get_usersTable?secu=999', true);
+    xhr.onload =  function infoProfilCreateur() {
+       let tableau = JSON.parse(xhr.responseText);
+       for (let i of tableau) {
+           if (i.userId == idCreateur) {
+               let sexe = i.userSexe;
+               if (sexe = "M") {
+                   sexe = "homme";
+               }
+               else if (sexe = "F") {
+                   sexe = "femme";
+               }
+               else {
+                   sexe = "non binaire";
+               }
 
+               getElemId('pseudo').innerText = i.userPseudo;
+               getElemId('prenom').innerText = i.userPrenom;
+               getElemId('nom').innerText = i.userNom;
+               getElemId('mail').innerText = i.userMail;
+               getElemId('date').innerText = i.userDate;
+               getElemId('sexe').innerText = "Sexe : " + sexe;
+               getElemId('titreListeSondages').innerText = "Voici les sondages créés par l'utilisateur " + i.userPseudo;
+               break;
+           }
+       }
+        getElemId('titreListeSondages').style.width = "40%";
+        getElemId('titreListeSondages').style.textAlign = "center";
+        getElemId('titreListeSondages').style.marginLeft = "12%";
+        getElemId('titreListeSondages').style.marginTop = "5.7%";
+        getElemId('ascenceurSondages').style.cssFloat = "left";
+        getElemId('ascenceurSondages').style.marginLeft = "20%";
 
+        sondagesOfCreateur();
+        getElemId('actualiserCreation').hidden = true;
+        getElemId('profil').hidden = false;
+        getElemId('sondage').hidden = true;
+        getElemId('divCreationSondage').hidden=true;
+        estAnonyme();
+    };
+    xhr.send();
+}
 
+function sondagesOfProfil() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('get','http://localhost/get_sondagesOfUser?userId='+idConnecte);
+    xhr.onload = function createBoutons() {
+        let boutons = "";
+        let tableau = JSON.parse(xhr.responseText);
+        let compteur = 0;
+        for(let i of tableau) {
+            if (compteur % 2 == 0) {
+                boutons += "<button onclick=\"ouvrireSondage("+ i.sondId +")\" class=\"listeSondagesCrées1\">"+ i.sondTitre +"</button><br>"
+            }
+            else {
+                boutons += "<button onclick=\"ouvrireSondage("+ i.sondId +")\" class=\"listeSondagesCrées2\">"+ i.sondTitre +"</button><br>"
+            }
+            compteur++;
+        }
+        getElemId('ascenceurSondages').innerHTML = boutons;
+    };
+    xhr.send();
+}
 
+function sondagesOfCreateur() {
+    let xhr = new XMLHttpRequest();
+    xhr.open('get','http://localhost/get_sondagesOfUser?userId='+idCreateur);
+    xhr.onload = function createBoutons() {
+        let boutons = "";
+        let tableau = JSON.parse(xhr.responseText);
+        let compteur = 0;
+        for(let i of tableau) {
+            if (compteur % 2 == 0) {
+                boutons += "<button onclick=\"ouvrireSondage("+ i.sondId +")\" class=\"listeSondagesCrées1\">"+ i.sondTitre +"</button><br>"
+            }
+            else {
+                boutons += "<button onclick=\"ouvrireSondage("+ i.sondId +")\" class=\"listeSondagesCrées2\">"+ i.sondTitre +"</button><br>"
+            }
+            compteur++;
+        }
+        getElemId('ascenceurSondages').innerHTML = boutons;
+    };
+    xhr.send();
+}
 

@@ -459,6 +459,18 @@ h1 {
     margin-right: 38%;
     text-align: center;
 }
+#actualiserCreation {
+    width: 20%;
+    border: 0;
+    font-size: 180%;
+    background-color: #5DEA69;
+    border-radius: 40px;
+    color: black;
+    margin-top: 4%;
+    text-align: center;
+    float: left;
+    margin-left: 63%;
+}
 
 #ascenceurSondages {
     width: 25%;
@@ -493,7 +505,7 @@ h1 {
 
 #sondagesCréés h2 {
     float: left;
-    margin-top: 2%;
+    margin-top: 5.7%;
     margin-left: 1%;
     font-weight: bold;
     background-color: white;
@@ -503,7 +515,7 @@ h1 {
 }
 
 #sondageBienCree {
-    color: lawngreen;
+    color: #5DEA69;
     background-color: white;
     font-size: 200%;
     width: 54%;
@@ -564,9 +576,6 @@ h3 {
     margin-left: 11%;
     margin-bottom: 7%;
     font-size: 200%;
-}
-
-input[name="reponseSondage"] {
 }
 
 .boutonSondage,#reponses,#pourcentReponses {
