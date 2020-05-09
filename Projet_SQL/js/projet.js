@@ -21,19 +21,18 @@ function getElemClass(param) {
 }
 
 function goToConnexion() {
+    anonyme = false;
+    estAnonyme();
     getElemId('accueil').hidden = true;
     getElemId('connexion').hidden = false;
     getElemId('inscription').hidden = true;
-
-    anonyme = false;
-    estAnonyme();
 }
 
 function goToInscription() {
+    anonyme = false;
+    estAnonyme();
     getElemId('accueil').hidden = true;
     getElemId('inscription').hidden = false;
-
-    estAnonyme();
 }
 
 function goToCateg() {
@@ -102,7 +101,6 @@ function estAnonyme() {
 
 function connexion(formulaire){
     let tableUsers = [];
-
     let pseudo = getElemId('pseudoConnexion').value;
     let motDePasse = getElemId('motdepasseConnexion').value;
 
@@ -114,7 +112,6 @@ function connexion(formulaire){
         for (let i of tableUsers) {
             compteur++;
             if (pseudo == i.userPseudo && motDePasse== i.userPassword) {
-               anonyme = false;
                idConnecte = i.userId;
                 getElemId('connexion').hidden = true;
                 getElemId('categories').hidden = false;
@@ -168,7 +165,6 @@ function inscription(formualire) {
                     formualire.adresseMail.value="";
                     formualire.date.value="";
                     formualire.genre.value="M";
-
                     goToConnexion();
                 }
             }
@@ -193,10 +189,10 @@ function infoProfil() {
         for (let i of tableUsers) {
             if (idConnecte == i.userId) {
                 let sexe = i.userSexe;
-                if (sexe = "M") {
+                if (sexe == "M") {
                     sexe = "homme";
                 }
-                else if (sexe = "F") {
+                else if (sexe == "F") {
                     sexe = "femme";
                 }
                 else {
@@ -217,8 +213,6 @@ function infoProfil() {
 }
 
 function nombresReponse(param) {
-
-    debugger;
     if (param == 2) {
         getElemId('reponse1').hidden=false;
         getElemId('reponse2').hidden=false;
@@ -484,10 +478,10 @@ function goToProfilCreateur() {
        for (let i of tableau) {
            if (i.userId == idCreateur) {
                let sexe = i.userSexe;
-               if (sexe = "M") {
+               if (sexe == "M") {
                    sexe = "homme";
                }
-               else if (sexe = "F") {
+               else if (sexe == "F") {
                    sexe = "femme";
                }
                else {
