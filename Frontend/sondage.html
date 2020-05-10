@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>À votre avis ?</title>
+    <link href="css/projet.css" rel="stylesheet" type="text/css">
+    <script src="js/projet.js" type="text/javascript"></script>
+	<script src="js/Francois-Charlier-creerSondage-sondagesProfil.js" type="text/javascript"></script>
+    <script src="js/Matthew-Everard-afficher-sondages.js" type="text/javascript"></script>
+    <script src="js/Maxime-Lits-inscription-checkreponses.js" type="text/javascript"></script>
+
+</head>
+<body>
+    <main id="accueil">
+        <div>
+            <img class="imgTop" src="imgs/logosondages.png" alt="logos">
+        </div>
+        <div id="buttonAccueil">
+            <button onclick="goToConnexion()" class="boutonAccueil" id="boutonConnexion" >Connexion</button><br>
+            <button onclick="goToInscription()" class="boutonAccueil" id="boutonInscription" >Inscription</button><br>
+            <button onclick="goToCateg()" class="boutonAccueil" id="boutonAnonyme" >Anonyme</button>
+        </div>
+        <p id="textfin">Projet Base de données juin 2020 de Maxime Lits, Matthew Everard et Charlier François. - EPHEC</p>
+    </main>
+
+    <main id="connexion" hidden>
+        <div>
+            <img class="imgTop" src="imgs/logosondages.png" alt="logos" onclick="location.reload()">
+        </div>
+        <div id="inputConnexion">
+            <form id="formConnexion" onsubmit="return connexion(this)" action="#">
+                <label class="labelConnexion">Pseudo :</label>
+                <input type="text" id="pseudoConnexion" placeholder="Pseudo..."><br>
+                <label class="labelConnexion">Mot de passe :</label>
+                <input type="password" id="motdepasseConnexion" placeholder="Mot  de passe..."><br>
+                <input type="submit" id="validerConnexion" value="Valider">
+                <p id="messageErreur3"hidden>Pseudo ou mot de passe invalide !</p>
+            </form>
+        </div>
+    </main>
+
+    <main id="inscription" hidden>
+        <div>
+            <img class="imgTop" src="imgs/logosondages.png" alt="logos" onclick="location.reload()">
+        </div>
+        <div id="inputInscription">
+            <form id="formInscription" action="#" onsubmit="return inscription(this)">
+                <label class="labelInscription">Nom :</label>
+                <input name="nom" type="text" required class="inputInscription1" placeholder="Nom..." max="30"><br>
+                <label class="labelInscription">Prénom :</label>
+                <input name="prenom" type="text" required class="inputInscription2" placeholder="Prénom..." max="30"><br>
+                <label class="labelInscription">Pseudo :</label>
+                <input name="pseudo" type="text" required class="inputInscription1" placeholder="Pseudo..." max="30"><br>
+                <label class="labelInscription">Mot de passe :</label>
+                <input name="motDePasse" type="password" required class="inputInscription2" placeholder="Mot de passe..." max="30"><br>
+                <label class="labelInscription">Adresse email :</label>
+                <input name="adresseMail" type="email" required class="inputInscription1" placeholder="Adresse email..." max="100"><br>
+                <label class="labelInscription">Date de naissance :</label>
+                <input name="date" type="date" required class="inputInscription2"><br>
+                <label class="labelInscription">Genre :</label>
+                <input  type="radio" name="genre" value="M" checked>
+                <img src="imgs/mec.png" alt="Symbole genre Homme" id="symboleMec">
+                <input type="radio" name="genre" value="F">
+                <img src="imgs/fille.png" alt="Symbole genre Femme" id="symboleFille">
+                <input type="radio" name="genre" value="A">
+                <img src="imgs/autre.png" alt="Symbole genre Autre" id="symboleAutre"><br>
+                <label id="caché" class="labelInscription"></label>
+                <input type="submit" id="validerInscription" value="Valider">
+                <p id="messageErreur1" hidden>L'adresse Mail ou le pseudo a déjà été utilisé !</p>
+                <p id="messageErreur2" hidden>Le mot passe doit faire un minimum de 8 charactères !</p>
+            </form>
+        </div>
+    </main>
+
+    <main id="categories" hidden>
+        <div class="photoProfilAnonyme">
+            <img class="profilCategories" src="imgs/monProfil.png" alt="Image de profil" onclick="goToProfil()">
+        </div>
+        <div class="titreCategories">
+            <p>Catégories</p>
+        </div>
+        <div id="boutonsCategories">
+            <img class="imgCategories" src="imgs/logosondages.png" alt="logos">
+            <button onclick="goToSelectCateg('J','Jeux-vidéos')" class="boutonCategories1">Jeux-vidéos</button><br>
+            <button onclick="goToSelectCateg('N','Nourriture')" class="boutonCategories2">Nourriture</button></button><br>
+            <button onclick="goToSelectCateg('P','Politique')" class="boutonCategories1">Politique</button></button><br>
+            <button onclick="goToSelectCateg('C','Cinéma')" class="boutonCategories2">Cinéma</button></button><br>
+            <button onclick="goToSelectCateg('S','Social')" class="boutonCategories1">Social</button></button>
+        </div>
+    </main>
+
+    <main id="selectCateg" hidden>
+        <div class="photoProfilAnonyme">
+            <img class="profilCategories" src="imgs/monProfil.png" alt="Image de profil" onclick="goToProfil()">
+        </div>
+        <div class="titreCategories">
+            <p id="titreSelectCateg">Jeux-vidéos</p>
+        </div>
+        <div id="boutonsSelectCateg">
+            <img class="imgCategories" src="imgs/logosondages.png" alt="logos">
+            <div id="boutonsSansImage">
+
+            </div>
+            <button id="boutonRetourCateg" onclick="goToCateg()">Retour</button>
+        </div>
+    </main>
+
+    <main id="sondage" hidden>
+        <div class="photoProfilAnonyme">
+            <img id="profilSondage" src="imgs/monProfil.png" alt="Image de profil" onclick="goToProfil()">
+        </div>
+        <div id="sondageType">
+            <img id="profilCreateur" src="imgs/profilAutres.png" alt="Image de profil du créateur" onclick="goToProfilCreateur()">
+            <h3 id="titreSondage"></h3>
+            <form id="boutonsSondage">
+
+            </form>
+            <table id="reponses">
+                <tr id="zoneReponse">
+
+                </tr>
+            </table><br>
+            <table id="pourcentReponses">
+                <tr id="zonePourcentReponse">
+
+                </tr>
+            </table>
+            <button type="button" id="validerSondage">Valider</button>
+            <button type="button" id="voirResultats" onclick="voirResultats()" hidden>Voir résultats</button>
+            <p id="nombresParticipants" value="0"></p>
+        </div>
+        <div>
+            <button id="boutonAnnulerSondage" onclick="goToCateg()">Retour</button>
+        </div>
+    </main>
+
+    <main id="profil" hidden>
+        <div>
+            <button id="boutonAnnulerProfil" onclick="goToCateg()">Retour</button>
+        </div>
+        <div id="infoProfil1">
+            <img src="imgs/monProfil.png" id="imageMonProfil">
+            <div id="infoProfil2">
+                <p id="pseudo"></p>
+                <p id="prenom"></p>
+                <p id="nom"></p>
+                <p id="mail"></p>
+                <p id="date"></p>
+                <p id="sexe"></p>
+            </div>
+        </div>
+        <div id="divCreationSondage">
+            <h1>Création d'un sondage</h1>
+            <form id="creationSondage" onsubmit="return creationSondage(this)" action="#">
+                <label class="labelCreationSondage">Question :</label>
+                <input type="text" name="question" required class="inputCreationSondage" id="question" placeholder="Question..." max="200"><br>
+                <label class="labelCreationSondage">Catégorie :</label>
+                <select class="inputCreationSondage2" name="categorie">
+                    <option value="J">Jeux-vidéo</option>
+                    <option value="P">Politique</option>
+                    <option value="C">Cinéma</option>
+                    <option value="S">Social</option>
+                    <option value="N">Nourriture</option>
+                </select><br>
+                <label class="labelCreationSondage">Réponses :</label>
+                <select class="inputCreationSondage" id="nbreponse" onchange="nombresReponse(this.value)">
+                    <option id="selected">2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select><br>
+                <input id="reponse1" type="text" class="reponse" placeholder="Réponse..." max="100" name="rep1">
+                <input id="reponse2" type="text" class="reponse" placeholder="Réponse..." max="100" name="rep2">
+                <input id="reponse3" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep3">
+                <input id="reponse4" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep4">
+                <input id="reponse5" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep5">
+                <input id="reponse6" type="text" class="reponse" placeholder="Réponse..." hidden max="100" name="rep6">
+
+                <input type="submit" value="Valider la création du sondage" id="validerCreation">
+                <p id="sondageBienCree" hidden>Le Sondage a bien été créé.</p>
+            </form>
+        </div>
+        <div id="sondagesCréés">
+            <h2 id="titreListeSondages"></h2><br>
+            <div id="ascenceurSondages">
+
+            </div>
+        </div>
+        <input type="button" value="Actualiser mes sondages" id="actualiserCreation" onclick="sondagesOfProfil()">
+    </main>
+</body>
+</html>
