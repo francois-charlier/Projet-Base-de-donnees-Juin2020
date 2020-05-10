@@ -13,78 +13,88 @@ Il est aussi possible de se connecter anonymement afin de répondre aux sondages
 En revanche, un utilisateur anonyme ne peut pas créer de sondage.
 
 # Aspects implémentés
-La liste des aspects techniques qu'il faut implémenter pour mettre en place le projet, en séparant les aspects backend (base de données, procédures SQL, webservices, serveur de fichiers) et les aspects frontend (html, css, js, page web et fonctionnalités à proposer aux utilisateurs).
+* La partie backend sert à stocker les utilisateurs, les sondages, les réponses des sondages et les catégories.
 
+* La partie frontend sert à gérer la partie client et de faire le lien avec la partie backend via les webservices.
 
 # Détail api rest
 * Webservice root :
   - Fait appel à la procédure get_page qui permet d'ouvrir notre fichier html.
-  - Composé d'un seul paramètre de type char qui représente le nom de notre fichier Html.
+  - Comporte un seul paramètre de type char qui représente le nom de notre fichier Html.
   - Type raw.
   - Auteur : commun
   
 * Webservice js :
   - Fait appel à la procédure get_page qui permet de lier notre js à notre html.
-  - Composé d'un seul paramètre de type char qui représente le nom de notre fichier Js.
+  - Comporte un seul paramètre de type char qui représente le nom de notre fichier Js.
   - Type raw.
   - Auteur : commun
   
 * Webservice css :
   - Fait appel à la procédure get_page qui permet de lier notre css à notre html.
-  - Composé d'un seul paramètre de type char qui représente le nom de notre fichier Css.
+  - Comporte un seul paramètre de type char qui représente le nom de notre fichier Css.
   - Type raw.
   - Auteur : commun
   
 * Webservice imgs :
   - Fait appel à la procédure get_page qui permet de lier notre js à notre html.
-  - Composé d'un seul paramètre de type char qui représente le nom de notre fichier Js.
+  - Comporte un seul paramètre de type char qui représente le nom de notre fichier Js.
   - Type raw.
   - Auteur : commun
   
 * Webservice get_sondage  :
   - Fait appel à la procédure get_sondage qui permet de récupérer dans la base de données le titre du sondage, les réponses et               leurs nombres de votes, le nombre de participant ainsi que l'id du créateur en les tranformant en un objet JSON.
-  - Composé d'un seul paramètre de type integer qui représente l'ID du sondage que l'on souhaite récupérer.
+  - Comporte un seul paramètre de type integer qui représente l'ID du sondage que l'on souhaite récupérer.
   - Type JSON
   - Auteur : commun
   
 * Webservice get_sondages :
   - Fait appel à la procédure get_sondagesOfCateg qui permet de récupérer dans la base de données les titres des sondages ainsi             que l'id des sondages en les tranformant en un objet JSON.
-  - Composé d'un seul paramètre de type char qui représente l'ID de la catégories des sondages que l'on souhaite récupérer.
+  - Comporte un seul paramètre de type char qui représente l'ID de la catégories des sondages que l'on souhaite récupérer.
   - Type JSON
   - Auteur : Matthew Everard
   
 * Webservice get_sondagesOfUser :
   - Fait appel à la procédure get_sondagesOfUser qui permet de récupérer dans la base de données les titres des sondages ainsi que           l'id des sondages en les tranformant en un objet JSON.
-  - Composé d'un seul paramètre de type integer qui représente l'ID du créateur des sondages que l'on souhaite récupérer.
+  - Comporte un seul paramètre de type integer qui représente l'ID du créateur des sondages que l'on souhaite récupérer.
   - Type JSON
   - Auteur : François Charlier
 
 * Webservice get_usersTable :
   - Fait appel à la procédure get_usersTable qui permet de récupérer dans la base de données les Ids, les noms, les prénoms, les             mot de passe, les pseudos, les mails, les dates de naissance ainsi que le sexe de tout les utilisateurs en les tranformant en     un     objet JSON.
-  - Composé d'un seul paramètre de type integer qui permet de sécuriser les informations des utilisateurs.
+  - Comporte un seul paramètre de type integer qui permet de sécuriser les informations des utilisateurs.
   - Type JSON
   - Auteur : MAtthew Everard
   
 * Webservice get_createUser :
   - Fait appel à la procédure get_createUser qui permet d'ajouter dans la base de données le nom, le prénom, le mail, le mote de       passe, la date de naissance , le pseudo ainsi que le sexe d'un nouvel utilisateur.
-  - Composé de 7 paramètres qui sont le pseudo, le mot de passe, le nom, du prénom, et le mail qui sont de type varchar, la date       de naissance qui est de type date et le sexe qui est de type char.
+  - Comporte 7 paramètres qui sont le pseudo, le mot de passe, le nom, du prénom, et le mail qui sont de type varchar, la date       de naissance qui est de type date et le sexe qui est de type char.
   - Type raw
   - Auteur : Maxime Lits
   
 * Webservice get_createSondage :
   - Fait appel à la procédure get_createSondage qui permet d'ajouter dans la base de données l'ID du créateur, la question, l'ID       de la catégorie ainsi que les deux à six réponses du nouveau sondage.
-  - Composé de 9 paramètres qui sont l'Id du créateur qui est de type integer, l'Id de la catégorie qui est de type char et la         question ainsi que les réponses qui sont de type varchar.
+  - Comporte 9 paramètres qui sont l'Id du créateur qui est de type integer, l'Id de la catégorie qui est de type char et la         question ainsi que les réponses qui sont de type varchar.
   - Type raw
   - Auteur : François Charlier
   
 * Webservice get_addCheck :
   - Fait appel à la procédure get_addCheck qui permet de modifier dans la base de données le nombre de participants à un sondage             ainsi que le nombre de votes pour chaque réponse du sondage.
-  - Composé de deux paramètres qui sont l'Id du sondage et l'Id de la réponse qui sont de type integer.
+  - Comporte deux paramètres qui sont l'Id du sondage et l'Id de la réponse qui sont de type integer.
   - Type raw
   - Auteur : Maxime Lits
 
-*
+* Fonction get_path :
+  - Permet de récuperer le chemin des fichiers utilisés pour notre projet.
+  - Ne comporte aucun paramètre.
+  - Elle renvoit une valeur de type long varchar.
+  - Auteur : Commun
 
+* Fonction get_sondId :
+  - Permet de récupérer l'Id du dernier sondage créé.
+  - Ne comporte aucun paramètre.
+  - Elle renvoit une valeur de type integer.
+  - Auteur : Commun
 
 # Détail DB
 Notre base de données se compose de 4 tables qui sont respectivement :
