@@ -1,0 +1,2 @@
+
+CREATE SERVICE "root" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call get_Page('sondage');
