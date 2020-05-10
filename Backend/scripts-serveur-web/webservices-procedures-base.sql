@@ -55,3 +55,11 @@ BEGIN
     call sa_set_http_header('Content-Type', 'text/css');
 	select xp_read_file(dba.get_path() || 'css\' || url);
 END;
+
+------------------------------------------------------------------------------------------
+CREATE SERVICE "css" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call get_css(:url);
+
+CREATE SERVICE "imgs" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call get_Img(:url);
+
+CREATE SERVICE "js" TYPE 'RAW' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call get_js(:url);
+
