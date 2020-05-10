@@ -26,9 +26,9 @@ CREATE TABLE "DBA"."sondages" (
 	"sondTitre" VARCHAR(200) NOT NULL,
 	"nbParticipant" INTEGER NOT NULL DEFAULT 0,
 	"categId" CHAR(1) NULL,
-	CONSTRAINT "pk_sondages" PRIMARY KEY ( "sondId" ASC )
-	CONSTRAINT "fk_sondages_categories" FOREIGN KEY ( "categId" ASC ) REFERENCES "DBA"."categories" ( "categId" );
-	CONSTRAINT "fk_sondages_users" FOREIGN KEY ( "userId" ASC ) REFERENCES "DBA"."users" ( "userId" );
+	CONSTRAINT "pk_sondages" PRIMARY KEY ( "sondId" ASC ),
+	CONSTRAINT "fk_sondages_categories" FOREIGN KEY ( "categId" ASC ) REFERENCES "DBA"."categories" ( "categId" ),
+	CONSTRAINT "fk_sondages_users" FOREIGN KEY ( "userId" ASC ) REFERENCES "DBA"."users" ( "userId" )
 ) IN "system";
 
 ----
@@ -38,8 +38,8 @@ CREATE TABLE "DBA"."reponses" (
 	"repId" INTEGER NOT NULL,
 	"reponse" VARCHAR(100) NULL,
 	"nbCheck" INTEGER NOT NULL DEFAULT 0,
-	CONSTRAINT "pk_reponses" PRIMARY KEY ( "sondId" ASC, "repId" ASC )
-	CONSTRAINT "fk_sondages" NOT NULL FOREIGN KEY ( "sondId" ASC ) REFERENCES "DBA"."sondages" ( "sondId" );
+	CONSTRAINT "pk_reponses" PRIMARY KEY ( "sondId" ASC, "repId" ASC ),
+	CONSTRAINT "fk_sondages" NOT NULL FOREIGN KEY ( "sondId" ASC ) REFERENCES "DBA"."sondages" ( "sondId" )
 ) IN "system";
 
 
