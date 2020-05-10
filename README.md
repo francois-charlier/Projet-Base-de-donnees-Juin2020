@@ -1,6 +1,6 @@
 # Présentation de l'équipe
-Maxime Lits
-Matthew Everard
+Maxime Lits<br>
+Matthew Everard<br>
 Charlier François
 
 Groupe : M2PR05_sondage
