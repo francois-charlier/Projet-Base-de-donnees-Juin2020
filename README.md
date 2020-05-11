@@ -135,4 +135,4 @@ Notre base de données se compose de 4 tables qui sont respectivement :
      2. categName : cette colonne permet de stocker le nom de chaque catégorie ( type varchar ).
    - La clé primaire pk_categories est la colonne categId.
 
-![shéma relationnel](shémaRelationnel.png)
+![shéma relationnel](shémaRelationnel.PNG)
