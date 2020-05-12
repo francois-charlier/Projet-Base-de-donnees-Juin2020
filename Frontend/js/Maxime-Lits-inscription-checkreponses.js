@@ -31,11 +31,12 @@ function inscription(formualire) {
     let prenom = formualire.prenom.value;
     let pseudo = formualire.pseudo.value;
     let motDePasse = formualire.motDePasse.value;
+    let confirmation = formualire.confirmation.value;
     let adresseMail = formualire.adresseMail.value;
     let date = formualire.date.value;
     let genre = formualire.genre.value;
 
-    if (motDePasse.length >= 8) {
+    if (motDePasse.length >= 8 && motDePasse == confirmation) {
         let xhr = new XMLHttpRequest();
         xhr.open('get', 'http://localhost/get_usersTable?secu=999', true);
         xhr.onload = function jsonToTable() {
@@ -74,4 +75,5 @@ function inscription(formualire) {
     }
     return false
 }
+
 
