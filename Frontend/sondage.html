@@ -5,10 +5,6 @@
     <title>À votre avis ?</title>
     <link href="css/projet.css" rel="stylesheet" type="text/css">
     <script src="js/projet.js" type="text/javascript"></script>
-	<script src="js/Francois-Charlier-creerSondage-sondagesProfil.js" type="text/javascript"></script>
-    <script src="js/Matthew-Everard-afficher-sondages.js" type="text/javascript"></script>
-    <script src="js/Maxime-Lits-inscription-checkreponses.js" type="text/javascript"></script>
-
 </head>
 <body>
     <main id="accueil">
@@ -45,18 +41,28 @@
         </div>
         <div id="inputInscription">
             <form id="formInscription" action="#" onsubmit="return inscription(this)">
+
                 <label class="labelInscription">Nom :</label>
                 <input name="nom" type="text" required class="inputInscription1" placeholder="Nom..." max="30"><br>
+
                 <label class="labelInscription">Prénom :</label>
                 <input name="prenom" type="text" required class="inputInscription2" placeholder="Prénom..." max="30"><br>
+
                 <label class="labelInscription">Pseudo :</label>
                 <input name="pseudo" type="text" required class="inputInscription1" placeholder="Pseudo..." max="30"><br>
+
                 <label class="labelInscription">Mot de passe :</label>
                 <input name="motDePasse" type="password" required class="inputInscription2" placeholder="Mot de passe..." max="30"><br>
+
+                <label class="labelInscription">Confirmation :</label>
+                <input name="confirmation" type="password" required class="inputInscription1" placeholder="Confirmation..." max="30"><br>
+
                 <label class="labelInscription">Adresse email :</label>
-                <input name="adresseMail" type="email" required class="inputInscription1" placeholder="Adresse email..." max="100"><br>
+                <input name="adresseMail" type="email" required class="inputInscription2" placeholder="Adresse email..." max="100"><br>
+
                 <label class="labelInscription">Date de naissance :</label>
-                <input name="date" type="date" required class="inputInscription2"><br>
+                <input name="date" type="date" required class="inputInscription1"><br>
+
                 <label class="labelInscription">Genre :</label>
                 <input  type="radio" name="genre" value="M" checked>
                 <img src="imgs/mec.png" alt="Symbole genre Homme" id="symboleMec">
@@ -65,10 +71,11 @@
                 <input type="radio" name="genre" value="A">
                 <img src="imgs/autre.png" alt="Symbole genre Autre" id="symboleAutre"><br>
                 <label id="caché" class="labelInscription"></label>
+
                 <input type="submit" id="validerInscription" value="Valider">
-                <p id="messageErreur1" hidden>L'adresse Mail ou le pseudo a déjà été utilisé !</p>
-                <p id="messageErreur2" hidden>Le mot passe doit faire un minimum de 8 charactères !</p>
             </form>
+            <p id="messageErreur1" hidden>L'adresse Mail ou le pseudo a déjà été utilisé !</p>
+            <p id="messageErreur2" hidden>Les deux mots de passe ne correspondent pas ou ne font pas 8 caractères ! </p>
         </div>
     </main>
 
