@@ -205,8 +205,8 @@ input[type="date"] {
     font-size: 200%;
     background-color: white;
     margin-bottom: 26%;
-    width: 48%;
-    margin-left: 1.5%;
+    width: 32%;
+    margin-left: 34%;
 }
 
 #messageErreur2 {
@@ -214,7 +214,8 @@ input[type="date"] {
     font-size: 200%;
     background-color: white;
     margin-bottom: 26%;
-    width: 57%;
+    width: 50%;
+    margin-left: 26%;
 }
 
 
@@ -390,11 +391,10 @@ input[type="date"] {
 h1 {
     margin-bottom: 10%;
     border: solid black 3px;
-    width: 59%;
+    width: 49%;
     border-radius: 10px;
     padding: 5%;
     background-color: white;
-    text-align: center;
 }
 
 .labelCreationSondage {
@@ -446,7 +446,6 @@ h1 {
     border-radius: 15px;
     margin-bottom: 0.8%;
     font-size: 150%;
-    padding-left: 2.5%;
 }
 
 #validerCreation {
