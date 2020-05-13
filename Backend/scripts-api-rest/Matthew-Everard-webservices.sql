@@ -13,7 +13,7 @@ end;
 
 ----
 
-CREATE PROCEDURE "DBA"."get_usersTable"(in param int)
+CREATE PROCEDURE "DBA"."get_usersTable"()
 result ( userId int, userPseudo varchar(200), userPassword varchar(200), userMail varchar(200), userNom char(30), userPrenom char(30), userDate date, userSexe char(1) )
 BEGIN 
     
@@ -21,13 +21,12 @@ BEGIN
     Call sa_set_http_header('Access-Control-Allow-Origin', '*');
     select DBA.users.userId, DBA.users.userPseudo, DBA.users.userPassword, dba.users.userMail, DBA.users.userNom, DBA.users.userPrenom, DBA.users.userDate, DBA.users.userSexe
     from users
-    WHERE param = 999
 end;
 
 
 ---------------------------------------------------------------------
 
-CREATE SERVICE "get_usersTable" TYPE 'JSON' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call get_usersTable(:secu);
+CREATE SERVICE "get_usersTable" TYPE 'JSON' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call get_usersTable();
 
 CREATE SERVICE "get_sondages" TYPE 'JSON' AUTHORIZATION OFF USER "DBA" URL ON METHODS 'GET' AS call get_sondagesOfCateg(:categ);
 
