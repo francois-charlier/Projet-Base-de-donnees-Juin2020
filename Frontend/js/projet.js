@@ -106,7 +106,7 @@ function infoProfil() {
     let tableUsers;
     debugger;
     let xhr = new XMLHttpRequest();
-    xhr.open('get', 'http://localhost/get_usersTable?secu=999', true);
+    xhr.open('get', 'http://localhost/get_usersTable', true);
     xhr.onload = function jsonToTable() {
         tableUsers =  JSON.parse(xhr.responseText);
         for (let i of tableUsers) {
@@ -231,7 +231,7 @@ function voirResultats() {
 
 function goToProfilCreateur() {
     let xhr = new XMLHttpRequest();
-    xhr.open('get','http://localhost/get_usersTable?secu=999', true);
+    xhr.open('get','http://localhost/get_usersTable', true);
     xhr.onload =  function infoProfilCreateur() {
        let tableau = JSON.parse(xhr.responseText);
        for (let i of tableau) {
