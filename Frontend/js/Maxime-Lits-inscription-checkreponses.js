@@ -38,7 +38,7 @@ function inscription(formualire) {
 
     if (motDePasse.length >= 8 && motDePasse == confirmation) {
         let xhr = new XMLHttpRequest();
-        xhr.open('get', 'http://localhost/get_usersTable?secu=999', true);
+        xhr.open('get', 'http://localhost/get_usersTable', true);
         xhr.onload = function jsonToTable() {
             let compteur = 0;
             let check = true;
