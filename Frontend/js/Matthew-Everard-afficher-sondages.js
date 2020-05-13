@@ -41,7 +41,7 @@ function connexion(formulaire){
     let motDePasse = getElemId('motdepasseConnexion').value;
 
     let xhr = new XMLHttpRequest();
-    xhr.open('get', 'http://localhost/get_usersTable?secu=999', true);
+    xhr.open('get', 'http://localhost/get_usersTable', true);
     xhr.onload = function jsonToTable() {
         tableUsers =  JSON.parse(xhr.responseText);
         let compteur = 0;
