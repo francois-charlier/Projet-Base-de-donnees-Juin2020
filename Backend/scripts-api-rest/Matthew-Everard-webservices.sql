@@ -1,5 +1,5 @@
 
-/* auteur : Matthew Everard  */
+/* auteur : Matthew Everard HE201678  */
 
 CREATE PROCEDURE "DBA"."get_sondagesOfCateg"(in param char(1))
 result (sondId int, sondTitre varchar(200))
